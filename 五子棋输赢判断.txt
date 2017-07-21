@@ -1,0 +1,58 @@
+Vector2 chessboard//Æå×ÓÎ»ÖÃ×ø±ê
+int Judge(Vector2 chessboard,int state){
+	int x=(int)chessboard.x;
+	int y=(int)chessboard.y;
+	int horizontalNum=0;
+	int verticalNum=0;
+	int UpObliqueNum=0;
+	int DownObliqueNum=0;
+	for(int i=-4;i<5;i++){
+
+		chessboard=new Vector2(x+i,y);
+		if(chessboard.state==state){
+			horizontalNum++;
+			if(horizontalNum>=5){
+				return 1;
+				break;
+			}
+		}else{
+			horizontalNum=0;
+		}
+
+		chessboard=new Vector2(x,y+i);
+		if(chessboard.state==state){
+			verticalNum++;
+			if(verticalNum>=5){
+				return 1;
+				break;
+			}
+		}else{
+			verticalNum=0;
+		}
+
+
+		chessboard=new Vector2(x+i,y-i);
+		if(chessboard.state==state){
+			DownObliqueNum++;
+			if(DownObliqueNum>=5){
+				return 1;
+				break;
+			}
+		}else{
+			DownObliqueNum=0;
+		}
+
+
+		chessboard=new Vector2(x+i,y+i);
+		if(chessboard.state==state){
+			UpObliqueNum++;
+			if(UpObliqueNum>=5){
+				return 1;
+				break;
+			}
+		}else{
+			UpObliqueNum=0;
+		}		
+	}
+	return 0;
+}
