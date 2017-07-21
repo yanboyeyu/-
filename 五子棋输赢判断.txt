@@ -1,4 +1,4 @@
-Vector2 chessboard//棋子位置坐标
+Vector2 chessboard;//棋子位置坐标
 int Judge(Vector2 chessboard,int state){
 	int x=(int)chessboard.x;
 	int y=(int)chessboard.y;
